@@ -53,10 +53,7 @@ class DMNmodel(nn.Module):
         for ix in range(batch_size):
             num_s = len(EOS_idx[ix])
             diff = max_s - num_s
-            if diff > 0 :
-                pad = Variable(torch.zeros(diff,hidden_dim))
-            # output_i shape = (nums,hidden_dim)
-
+            
             valid = output_i[ix][EOS_idx[ix].cuda()]
             
             if diff > 0 :
